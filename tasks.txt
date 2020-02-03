@@ -1,0 +1,13 @@
+
+Initial
+
+1. Setup database to be in ../frontend/frontent/data
+
+Registration
+
+1. install django-registration
+
+
+Templates:
+
+1. Allow viewing of static sample files.

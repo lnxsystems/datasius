@@ -11,6 +11,26 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from pathlib import Path
+import sys
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PARENT_DIR = Path(BASE_DIR).parent.as_posix()
+DBPATH =  os.path.join(PARENT_DIR, "data",'db.sqlite3')
+STATIC_ROOT = os.path.join(PARENT_DIR, "data","static_root")
+
+
+print("="*80)
+print("BASE_DIR: {}".format(BASE_DIR))
+print("PARENT_DIR: {}".format(PARENT_DIR))
+print("DBPATH: {}".format(DBPATH))
+print("STATIC_ROOT: {}".format(STATIC_ROOT))
+
+print("="*80)
+
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,6 +48,9 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +60,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'frontend',
+    #'django-registration',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +101,7 @@ WSGI_APPLICATION = 'frontend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': DBPATH,
     }
 }
 
@@ -118,3 +143,34 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Static files not tied to a particular app.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+
+if (not Path(STATIC_ROOT).exists()):
+    #create it.
+    Path(STATIC_ROOT).mkdir()
+
+elif Path(STATIC_ROOT).is_file():
+    #This should not occur! We bail out.
+    msg = "{} is not a directory! We need this as a directory. Please remove and restart."
+    print(msg.format(STATIC_ROOT))
+    sys.exit(-1)
+
+#EMAIL configuration. We use google smtp here for now
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER ='datasius@gmail.com'
+EMAIL_HOST_PASSWORD ='r4bb1tMQ2020!'
+
+
+#django-registration configurations
+
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window

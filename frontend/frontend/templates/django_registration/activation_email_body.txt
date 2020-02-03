@@ -1,0 +1,2 @@
+This is the email template that will be filled up and will let it be.
+This should be fixed later on.
