@@ -3,21 +3,21 @@ Datasius FrontEnd Website development.
 
 
 
-##Dev tasks
+## Dev tasks
 
-###Initial
+### Initial
 1. Setup database to be in ../frontend/frontent/data
 
-###Registration
+### Registration
 1. install django-registration
 1.1 Create 2 step activation with email 
 1.2 Create basic templates for each page. 
 
-###Templates:
+### Templates:
 1. Allow viewing of static sample files.
 
 
-###Deployment
+### Deployment
 
 1.1 Create docker instance for website
 1.2 Create nginx frontend
