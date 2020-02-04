@@ -24,6 +24,11 @@ Datasius FrontEnd Website development.
 1.3 deploy using docker-compose 
 
 
-###Dev Setup Tasks
+### Dev Setup Tasks
 
 1.1 Create a setup script to create the dev environment. 
+
+### Nginx Proxy Setup
+
+1.1 Create docker nginx 
+1.2 Setup static files to be served by nginx
