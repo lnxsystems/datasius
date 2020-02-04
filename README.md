@@ -1,6 +1,24 @@
 # datasius
 Datasius FrontEnd Website development. 
 
+## Development Setup 
+
+This setup was only tested on Fedora 31. 
+
+To develop, either pull from this repository or fork it and pull 
+
+'''
+git clone git@github.com:jnvilo/datasius.git
+cd datasius
+sh scripts/setup-venv.sh 
+source venv/bin/activate
+cd frontend
+python manage.py runserver
+'''
+
+At this point you will have the website up and running at http://127.0.0.1:8000/
+
+The source code for the frontend website is in datasius/frontend
 
 
 ## Dev tasks
