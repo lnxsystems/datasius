@@ -13,7 +13,7 @@ cd datasius
 sh scripts/setup-venv.sh 
 source venv/bin/activate
 cd frontend
-python manage.py runserver
+python manage.py runserversd
 ```
 
 At this point you will have the website up and running at http://127.0.0.1:8000/
