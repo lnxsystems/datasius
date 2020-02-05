@@ -7,14 +7,14 @@ This setup was only tested on Fedora 31.
 
 To develop, either pull from this repository or fork it and pull 
 
-'''bash
+```
 git clone git@github.com:jnvilo/datasius.git
 cd datasius
 sh scripts/setup-venv.sh 
 source venv/bin/activate
 cd frontend
 python manage.py runserver
-'''
+```
 
 At this point you will have the website up and running at http://127.0.0.1:8000/
 
@@ -23,6 +23,17 @@ The source code for the frontend website is in datasius/frontend
 ## Docker 
 
 To build the docker image for the frontend
+
+```
+docker build -t datasius/frontend . -f Dockerfile.frontend 
+```
+
+During development, you can enter the docker image or container with the following commands:
+
+```
+docker run -it datasius/frontend /bin/sh   #Create a container and execute /bin/sh
+docker exec -it <container_id_or_name> /bin/sh #To enter a running container.
+```
 
 
 
