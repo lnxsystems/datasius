@@ -12,6 +12,7 @@ git clone git@github.com:jnvilo/datasius.git
 cd datasius
 sh scripts/setup-venv.sh 
 source venv/bin/activate
+pip install -r website/requirements.txt
 cd website
 python manage.py runserver
 ```
@@ -65,6 +66,18 @@ The website is composed of two docker images.
 The Nginx proxy also serves all static file from the website docker image. All static files are copied into the shared volume. /srv/datasius/static-root. During development there is no need to copy these files. All static files should be placed inside website/website/static.
 
 using docker-compose command will allow to build and deploy the two docker containers and also populate the shared volume used to share files between the two docker instances. 
+
+### Setup 
+
+If you have not yet done the development setup then the following commands are required:
+
+```
+git clone git@github.com:jnvilo/datasius.git
+cd datasius
+sh scripts/setup-venv.sh 
+source venv/bin/activate
+pip install -r website/requirements.txt
+```
 
 ### Build the images using docker-compose
 
