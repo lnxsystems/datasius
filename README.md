@@ -26,6 +26,7 @@ The source code for the frontend website is in website/website
 
 The original source html templates are served via http://<ip or domain>:8000/static/master and this corresponds to the directory path website/webiste/static/master 
   
+TODO: Add a description where the css , js, and which templates are used for each URL location.
 ## Code Layout
 
 The website is a django app called "website". This is located in website/ and mostly inside webiste/website. 
