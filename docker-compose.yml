@@ -1,0 +1,21 @@
+frontend:
+    build: nginx/
+    ports: 
+        - "80:80" 
+        - "443:443"
+    links:
+        - "backend"
+    restart: always
+    volumes: 
+        - static_vol:/srv/datasius/static_root
+        - db_vol:/srv/sqlitedir
+        - assets_vol:/srv/datasius/assets
+backend: 
+    build: frontend
+    ports:
+        - "8001:8001"
+    restart: always
+    volumes: 
+       - static_vol:/srv/datasius/static_root
+       - db_vol:/srv/datasius/data/sqlitedir
+       - assets_vol:/srv/datasius/assets
