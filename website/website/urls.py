@@ -1,4 +1,4 @@
-"""frontend URL Configuration
+"""website URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from . import views as frontend_views
+from . import views as website_views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', frontend_views.IndexView.as_view()),
+    url(r'^$', website_views.IndexView.as_view()),
     path('accounts/', include('django_registration.backends.activation.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
