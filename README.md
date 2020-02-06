@@ -12,43 +12,51 @@ git clone git@github.com:jnvilo/datasius.git
 cd datasius
 sh scripts/setup-venv.sh 
 source venv/bin/activate
-cd frontend
-python manage.py runserversd
+cd website
+python manage.py runserver
 ```
 
-At this point you will have the website up and running at http://127.0.0.1:8008/
+At this point you will have the website up and running at http://127.0.0.1:8000/ . It will be running in its own development web server. For production purposes we will not be using this but only use it during development. You may edit the python code and it will automatically reload thus speeding up development. 
 
-The source code for the frontend website is in datasius/frontend
+The source code for the frontend website is in website/website
 
 ## Docker 
 
-To build the docker image for the frontend
+To build the docker image for the website.
 
+### Working on frontend website Dockerfile
+
+The following commands assumes you are inside the datasius root directory.
 ```
-docker build -t datasius/frontend . -f Dockerfile.frontend 
+cd website
+docker build -t datasius/website . 
 ```
 
 During development, you can enter the docker image or container with the following commands:
 
 ```
-docker run -it datasius/frontend /bin/sh   #Create a container and execute /bin/sh
+docker run -it datasius/website /bin/sh   #Create a container and execute /bin/sh
 docker exec -it <container_id_or_name> /bin/sh #To enter a running container.
 ```
-
-To run the image for testing: 
+### Working on nginx Dockerfile
 
 ```
-docker build -t datasius/frontend -f Dockerfile.frontend .
+cd nginx
+docker build -t datasius/nginx . 
 ```
+
+## Docker-Compose
+
+The website is composed of two docker images. 
+
+* datasius/frontend
+* datasius/nginx
+
+The Nginx proxy also serves all static file from the website docker image. All static files are copied into the shared volume. /srv/datasius/static-root. During development there is no need to copy these files. All static files should be placed inside website/website/static.
 
 ### Using the Makefile
 
 There is a makefile that can be used to build and run the docker image during development. 
-
-Running make by itself will build and run the image. 
-```
-make 
-```
 
 
 ## Dev tasks
