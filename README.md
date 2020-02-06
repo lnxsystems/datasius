@@ -12,71 +12,90 @@ git clone git@github.com:jnvilo/datasius.git
 cd datasius
 sh scripts/setup-venv.sh 
 source venv/bin/activate
-cd frontend
-python manage.py runserversd
+pip install -r website/requirements.txt
+cd website
+python manage.py runserver
 ```
+The above command sequence will run the development server and serve the website on localhost. Browse to http://127.0.0.1:8000/
 
-At this point you will have the website up and running at http://127.0.0.1:8008/
+At this point you will have the website up and running at http://127.0.0.1:8000/ . It will be running in its own development web server. For production purposes we will not be using this but only use it during development. You may edit the python code and it will automatically reload thus speeding up development. 
 
-The source code for the frontend website is in datasius/frontend
+The source code for the frontend website is in website/website
+
+### Website Design and Templates
+
+The original source html templates are served via http://<ip or domain>:8000/static/master and this corresponds to the directory path website/webiste/static/master 
+  
+TODO: Add a description where the css , js, and which templates are used for each URL location.
+## Code Layout
+
+The website is a django app called "website". This is located in website/ and mostly inside webiste/website. 
+
 
 ## Docker 
 
-To build the docker image for the frontend
+To build the docker image for the website.
 
+### Working on frontend website Dockerfile
+
+The following commands assumes you are inside the datasius root directory.
 ```
-docker build -t datasius/frontend . -f Dockerfile.frontend 
+cd website
+docker build -t datasius/website . 
 ```
 
 During development, you can enter the docker image or container with the following commands:
 
 ```
-docker run -it datasius/frontend /bin/sh   #Create a container and execute /bin/sh
+docker run -it datasius/website /bin/sh   #Create a container and execute /bin/sh
 docker exec -it <container_id_or_name> /bin/sh #To enter a running container.
 ```
-
-To run the image for testing: 
+### Working on nginx Dockerfile
 
 ```
-docker build -t datasius/frontend -f Dockerfile.frontend .
+cd nginx
+docker build -t datasius/nginx . 
 ```
 
-### Using the Makefile
+## Docker-Compose
 
-There is a makefile that can be used to build and run the docker image during development. 
+The website is composed of two docker images. 
 
-Running make by itself will build and run the image. 
+* datasius/frontend
+* datasius/nginx
+
+The Nginx proxy also serves all static file from the website docker image. All static files are copied into the shared volume. /srv/datasius/static-root. During development there is no need to copy these files. All static files should be placed inside website/website/static.
+
+using docker-compose command will allow to build and deploy the two docker containers and also populate the shared volume used to share files between the two docker instances. 
+
+### Setup 
+
+If you have not yet done the development setup then the following commands are required:
+
 ```
-make 
+git clone git@github.com:jnvilo/datasius.git
+cd datasius
+sh scripts/setup-venv.sh 
+source venv/bin/activate
+pip install -r website/requirements.txt
+```
+
+### Build the images using docker-compose
+
+```
+docker-compose build
+```
+### Deploy the images using docker-compose
+
+```
+docker-compose up 
+```
+The above command deploys and maps port 80 to all interfaces. You can now browse and test the website via http://your_up/ 
+
+### Stop the containers
+
+```
+docker-compose down
 ```
 
 
-## Dev tasks
-
-### Initial
-1. Setup database to be in ../frontend/frontent/data
-
-### Registration
-1. install django-registration
-1.1 Create 2 step activation with email 
-1.2 Create basic templates for each page. 
-
-### Templates:
-1. Allow viewing of static sample files.
-
-
-### Deployment
-
-1.1 Create docker instance for website
-1.2 Create nginx frontend
-1.3 deploy using docker-compose 
-
-
-### Dev Setup Tasks
-
-1.1 Create a setup script to create the dev environment. 
-
-### Nginx Proxy Setup
-
-1.1 Create docker nginx 
-1.2 Setup static files to be served by nginx
