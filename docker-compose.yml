@@ -11,7 +11,7 @@ frontend:
         - db_vol:/srv/sqlitedir
         - assets_vol:/srv/datasius/assets
 backend: 
-    build: frontend
+    build: website/ 
     ports:
         - "8001:8001"
     restart: always
