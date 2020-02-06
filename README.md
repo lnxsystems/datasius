@@ -16,7 +16,7 @@ cd frontend
 python manage.py runserversd
 ```
 
-At this point you will have the website up and running at http://127.0.0.1:8000/
+At this point you will have the website up and running at http://127.0.0.1:8008/
 
 The source code for the frontend website is in datasius/frontend
 
@@ -35,6 +35,20 @@ docker run -it datasius/frontend /bin/sh   #Create a container and execute /bin/
 docker exec -it <container_id_or_name> /bin/sh #To enter a running container.
 ```
 
+To run the image for testing: 
+
+```
+docker build -t datasius/frontend -f Dockerfile.frontend .
+```
+
+### Using the Makefile
+
+There is a makefile that can be used to build and run the docker image during development. 
+
+Running make by itself will build and run the image. 
+```
+make 
+```
 
 
 ## Dev tasks
