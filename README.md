@@ -15,10 +15,20 @@ source venv/bin/activate
 cd website
 python manage.py runserver
 ```
+The above command sequence will run the development server and serve the website on localhost. Browse to http://127.0.0.1:8000/
 
 At this point you will have the website up and running at http://127.0.0.1:8000/ . It will be running in its own development web server. For production purposes we will not be using this but only use it during development. You may edit the python code and it will automatically reload thus speeding up development. 
 
 The source code for the frontend website is in website/website
+
+### Website Design and Templates
+
+The original source html templates are served via http://<ip or domain>:8000/static/master and this corresponds to the directory path website/webiste/static/master 
+  
+## Code Layout
+
+The website is a django app called "website". This is located in website/ and mostly inside webiste/website. 
+
 
 ## Docker 
 
@@ -53,6 +63,26 @@ The website is composed of two docker images.
 * datasius/nginx
 
 The Nginx proxy also serves all static file from the website docker image. All static files are copied into the shared volume. /srv/datasius/static-root. During development there is no need to copy these files. All static files should be placed inside website/website/static.
+
+using docker-compose command will allow to build and deploy the two docker containers and also populate the shared volume used to share files between the two docker instances. 
+
+### Build the images using docker-compose
+
+```
+docker-compose build
+```
+### Deploy the images using docker-compose
+
+```
+docker-compose up 
+```
+The above command deploys and maps port 80 to all interfaces. You can now browse and test the website via http://your_up/ 
+
+### Stop the containers
+
+```
+docker-compose down
+```
 
 ### Using the Makefile
 
