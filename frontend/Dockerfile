@@ -28,7 +28,8 @@ RUN pip3 install --trusted-host pypi.python.org -r /srv/datasius/frontend/requir
 WORKDIR /srv/datasius/frontend
 ADD frontend frontend
 ADD data data
-ADD scripts scripts
+ADD manage.py manage.py 
+ADD run.sh run.sh
 EXPOSE 8008
 WORKDIR /srv/datasius/frontend
-CMD  ["sh", "/srv/datasius/scripts/run.sh"]
+CMD  ["sh", "/srv/datasius/frontend/run.sh"]
