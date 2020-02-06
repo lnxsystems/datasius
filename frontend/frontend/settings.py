@@ -17,23 +17,22 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PARENT_DIR = Path(BASE_DIR).parent.as_posix()
-DBPATH =  os.path.join(PARENT_DIR, "data",'db.sqlite3')
+DBPATH =  os.path.join(BASE_DIR, "data",'db.sqlite3')
 STATIC_ROOT = os.path.join(PARENT_DIR, "data","static_root")
-
+STATIC_DIR = os.path.join(BASE_DIR,"frontend","static")
 
 print("="*80)
 print("BASE_DIR: {}".format(BASE_DIR))
 print("PARENT_DIR: {}".format(PARENT_DIR))
 print("DBPATH: {}".format(DBPATH))
 print("STATIC_ROOT: {}".format(STATIC_ROOT))
+print("STATIC_DIR: {}".format(STATIC_DIR))
 
 print("="*80)
 
 
 
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -46,6 +45,36 @@ SECRET_KEY = '(e3c+6a@&$t&0yii#5w$#0&r*@ec554=z#_k=q+hk5eh7@4^v4'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+STATIC_ROOT = os.path.join(PARENT_DIR, "static_root")
+print("STATIC_ROOT: {}".format(STATIC_ROOT))
+
+
+if (not Path(STATIC_ROOT).exists()):
+    #create it.
+    Path(STATIC_ROOT).mkdir()
+
+elif Path(STATIC_ROOT).is_file():
+    #This should not occur! We bail out.
+    msg = "{} is not a directory! We need this as a directory. Please remove and restart."
+    print(msg.format(STATIC_ROOT))
+    sys.exit(-1)
+
+ASSETS_DIR = os.path.join(PARENT_DIR, "assets")
+
+if (not Path(ASSETS_DIR).exists()):
+    #create it.
+    Path(ASSETS_DIR).mkdir()
+
+elif Path(ASSETS_DIR).is_file():
+    #This should not occur! We bail out.
+    msg = "{} is not a directory! We need this as a directory. Please remove and restart."
+    print(msg.format(STATIC_ROOT))
+    sys.exit(-1)
+
+
+
 
 
 
@@ -146,7 +175,7 @@ STATIC_URL = '/static/'
 
 # Static files not tied to a particular app.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(STATIC_DIR),
 )
 
 
@@ -174,3 +203,6 @@ EMAIL_HOST_PASSWORD ='r4bb1tMQ2020!'
 #django-registration configurations
 
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
+
+
+
