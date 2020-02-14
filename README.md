@@ -34,10 +34,10 @@ The website is a django app called "website". This is located in website/ and mo
 
 ## Docker
 
-**If you just want to launch the docker images for website and the nginx frontend, skip down to docker-compose. 
-To build the docker image for the website.**
+**If you just want to launch the docker images for website and the nginx frontend, skip down to docker-compose. **
 
-### Working on frontend website Dockerfile
+
+### frontend website Dockerfile
 
 The following commands assumes you are inside the datasius root directory.
 ```
