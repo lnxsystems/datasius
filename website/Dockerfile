@@ -20,6 +20,7 @@ RUN apk add --no-cache python3 \
    tiff-dev \
    libwebp-dev \
    libwebp \
+   libffi-dev \
      
 && pip3 install -U pip
 ADD requirements.txt /srv/datasius/website/requirements.txt
