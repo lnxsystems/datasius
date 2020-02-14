@@ -24,7 +24,7 @@ The source code for the frontend website is in website/website
 
 ### Website Design and Templates
 
-The original source html templates are served via http://<ip or domain>:8000/static/master and this corresponds to the directory path website/webiste/static/master
+As a convenience, the original source html templates are served via http://<ip or domain>:8000/static/master and this corresponds to the directory path website/webiste/static/master. This is usefull to check out the original master html templates. 
 
 TODO: Add a description where the css , js, and which templates are used for each URL location.
 ## Code Layout
