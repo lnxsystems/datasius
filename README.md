@@ -34,7 +34,7 @@ The website is a django app called "website". This is located in website/ and mo
 
 ## Docker
 
-** If you just want to launch the docker images for website and the nginx frontend, skip down to docker-compose. **
+**If you just want to launch the docker images for website and the nginx frontend, skip down to docker-compose.**
 
 
 ### frontend website Dockerfile
