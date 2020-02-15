@@ -28,7 +28,7 @@ website functions such as
 ```
 #### Templates
 
-The django templates are all found in ** website/website/template ** 
+The django templates are all found in **website/website/template** 
 
 
 ### Accounts and Registration
