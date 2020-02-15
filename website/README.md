@@ -14,7 +14,7 @@ The following third party apps are used
 
 The django.contrib.auth provides /accounts urls as follows:
 
-
+```
 accounts/ activate/complete/ [name='django_registration_activation_complete']
 accounts/ activate/<str:activation_key>/ [name='django_registration_activate']
 accounts/ register/ [name='django_registration_register']
@@ -28,3 +28,4 @@ accounts/ password_reset/ [name='password_reset']
 accounts/ password_reset/done/ [name='password_reset_done']
 accounts/ reset/<uidb64>/<token>/ [name='password_reset_confirm']
 accounts/ reset/done/ [name='password_reset_complete']
+```
