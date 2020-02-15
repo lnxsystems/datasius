@@ -3,6 +3,31 @@
 This is the code for the django website app. It takes care of various datasius
 website functions such as 
 
+
+### 
+Directory layout
+
+```
+├── data
+│   └── db.sqlite3
+├── Dockerfile
+├── Makefile
+├── manage.py
+├── README.md
+├── requirements.txt
+├── run.sh
+└── website
+    ├── asgi.py
+    ├── __init__.py
+    ├── __pycache__
+    ├── settings.py
+    ├── static
+    ├── templates
+    ├── urls.py
+    ├── views.py
+    └── wsgi.py
+```
+
 ### Accounts and Registration
 
 The following third party apps are used
