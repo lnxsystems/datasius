@@ -4,8 +4,7 @@ This is the code for the django website app. It takes care of various datasius
 website functions such as 
 
 
-### 
-Directory layout
+### Directory layout
 
 ```
 ├── data
@@ -27,6 +26,10 @@ Directory layout
     ├── views.py
     └── wsgi.py
 ```
+#### Templates
+
+The django templates are all found in ** website/website/template ** 
+
 
 ### Accounts and Registration
 
