@@ -24,7 +24,7 @@ The source code for the frontend website is in website/website
 
 ### Website Design and Templates
 
-The original source html templates are served via http://<ip or domain>:8000/static/master and this corresponds to the directory path website/webiste/static/master
+As a convenience, the original source html templates are served via http://<ip or domain>:8000/static/master and this corresponds to the directory path website/webiste/static/master. This is usefull to check out the original master html templates. 
 
 TODO: Add a description where the css , js, and which templates are used for each URL location.
 ## Code Layout
@@ -34,9 +34,10 @@ The website is a django app called "website". This is located in website/ and mo
 
 ## Docker
 
-To build the docker image for the website.
+**If you just want to launch the docker images for website and the nginx frontend, skip down to docker-compose.**
 
-### Working on frontend website Dockerfile
+
+### frontend website Dockerfile
 
 The following commands assumes you are inside the datasius root directory.
 ```
