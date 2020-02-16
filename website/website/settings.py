@@ -20,6 +20,7 @@ PARENT_DIR = Path(BASE_DIR).parent.as_posix()
 DBPATH =  os.path.join(BASE_DIR, "data",'db.sqlite3')
 STATIC_ROOT = os.path.join(PARENT_DIR, "data","static_root")
 STATIC_DIR = os.path.join(BASE_DIR,"website","static")
+TEMPLATE_DIR=os.path.join(BASE_DIR,"templates")
 
 print("="*80)
 print("BASE_DIR: {}".format(BASE_DIR))
@@ -27,12 +28,8 @@ print("PARENT_DIR: {}".format(PARENT_DIR))
 print("DBPATH: {}".format(DBPATH))
 print("STATIC_ROOT: {}".format(STATIC_ROOT))
 print("STATIC_DIR: {}".format(STATIC_DIR))
-
+print("TEMPLATE_DIR: {}".format(TEMPLATE_DIR))
 print("="*80)
-
-
-
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -108,7 +105,7 @@ ROOT_URLCONF = 'website.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR,],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
