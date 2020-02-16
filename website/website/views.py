@@ -13,3 +13,11 @@ class IndexView(View):
         return render(request, "index.html")
 
 
+class ProfileView(View):
+    
+    def get(self, request, **kwargs):
+
+        return render(request, "profile.html")
+    
+    
+    
