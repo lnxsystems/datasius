@@ -3,6 +3,34 @@
 This is the code for the django website app. It takes care of various datasius
 website functions such as 
 
+
+### Directory layout
+
+```
+├── data
+│   └── db.sqlite3
+├── Dockerfile
+├── Makefile
+├── manage.py
+├── README.md
+├── requirements.txt
+├── run.sh
+└── website
+    ├── asgi.py
+    ├── __init__.py
+    ├── __pycache__
+    ├── settings.py
+    ├── static
+    ├── templates
+    ├── urls.py
+    ├── views.py
+    └── wsgi.py
+```
+#### Templates
+
+The django templates are all found in **website/website/template** 
+
+
 ### Accounts and Registration
 
 The following third party apps are used
@@ -12,8 +40,7 @@ The following third party apps are used
 
 #### URLS 
 
-The django.contrib.auth provides /accounts urls as follows:
-
+The following urls links to the accounts and registration functionalities within the app. 
 ```
 accounts/ activate/complete/ [name='django_registration_activation_complete']
 accounts/ activate/<str:activation_key>/ [name='django_registration_activate']
