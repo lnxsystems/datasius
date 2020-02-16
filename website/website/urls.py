@@ -22,6 +22,7 @@ from . import views as website_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', website_views.IndexView.as_view()),
+    path('accounts/profile/', website_views.ProfileView.as_view()),
     path('accounts/', include('django_registration.backends.activation.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
 ]

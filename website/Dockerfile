@@ -21,6 +21,8 @@ RUN apk add --no-cache python3 \
    libwebp-dev \
    libwebp \
    libffi-dev \
+   openssl \ 
+   openssl-dev \ 
      
 && pip3 install -U pip
 ADD requirements.txt /srv/datasius/website/requirements.txt
