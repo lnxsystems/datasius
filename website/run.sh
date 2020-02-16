@@ -7,7 +7,7 @@ PARENTDIR="$(dirname $MYDIR)"
 WEBSITEDIR="${PARENTDIR}/website"
 MANAGEPY="${PARENTDIR}/website/manage.py"
 
-#python3 $MANAGEPY collectstatic --noinput
+python3 $MANAGEPY collectstatic --noinput
 
 echo "Entering website directory: $WEBSITEDIR"
 cd $WEBSITEDIR
