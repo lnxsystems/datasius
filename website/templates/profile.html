@@ -1,5 +1,20 @@
-<h1>This is the profile page</h1>
+{%extends "base.html" %}
+
+
+{% block BODY%}
+
+
+
+
+  <section class="signup-outer gradient-bg padding-lg">
+  <h1>This is the profile page</h1>
 
 <h2>Welcome {{request.user}}<h2>
 
 <a href="/accounts/logout/">Log Out </a>
+
+  
+  </section>
+
+
+{% endblock BODY %}
