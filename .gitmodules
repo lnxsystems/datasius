@@ -1,0 +1,3 @@
+[submodule "datasius-web"]
+	path = datasius-web
+	url = git@github.com:jnvilo/datasius-web.git
