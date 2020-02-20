@@ -1,3 +1,6 @@
 [submodule "datasius-web"]
 	path = datasius-web
 	url = git@github.com:jnvilo/datasius-web.git
+[submodule "datasius-nginx"]
+	path = datasius-nginx
+	url = https://github.com/jnvilo/datasius-nginx
