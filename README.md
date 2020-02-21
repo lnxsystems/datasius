@@ -8,7 +8,7 @@ This setup was only tested on Fedora 31.
 To develop, either pull from this repository or fork it and pull
 
 ```
-git clone git@github.com:jnvilo/datasius.git
+git clone --recurse-submodules --remote-submodules git@github.com:jnvilo/datasius.git
 cd datasius
 sh scripts/setup-venv.sh
 source venv/bin/activate
